@@ -22,10 +22,7 @@ class LinkedList:
 
     def add(self, data, *args):
         self.size += 1
-        if self.head:
-            self.head = Node(data, self.head)
-        else:
-            self.head = Node(data)
+        self.head = Node(data, self.head)
         for arg in args:
             self.add(arg)
 
