@@ -1,12 +1,17 @@
 from Node import Node
 import copy
+from collections.abc import Iterable
 
 class LinkedList:
     def __init__(self, data=None):
         self.head = None
         self.size = 0
         self.current = None
-        if data: self.extend(data)
+        if data:
+            if isinstance(data, Iterable):
+                self.extend(data)
+            else:
+                self.add(data)
 
 
     def add(self, data, *args):
