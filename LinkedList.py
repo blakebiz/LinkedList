@@ -3,12 +3,18 @@ import copy
 from collections.abc import Iterable
 
 class LinkedList:
-    def __init__(self, data=None):
+    def __init__(self, data=None, iterable=True):
+        '''
+        :param data: data to add to linked list (if it is an iterable it will loop through and add each
+        piece of data unless you specify iterable = False, then it will just add the iterable to one node)
+        :param iterable: only set this to False if initializing with an iterable and you want that iterable
+        to be stored in one node and not multiple nodes
+        '''
         self.head = None
         self.size = 0
         self.current = None
         if data:
-            if isinstance(data, Iterable):
+            if isinstance(data, Iterable) and iterable:
                 self.extend(data)
             else:
                 self.add(data)
